@@ -1,0 +1,45 @@
+.Topbar{
+    position: fixed;
+    display:flex;
+    border-bottom: grey solid 2px;
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 4;
+    width: 100%;
+    background-color: white;
+
+}
+.light{
+  
+    background-color: white;
+    color:black
+  }
+  .dark{
+    
+    background-color: black;
+    color: white
+  }
+
+.Topbar_logo{
+display: flex;
+align-items: center;
+}
+
+.searchbar{
+    width: 40%;
+    height: 2em;
+}
+.Topbar_element{
+    font-size: x-large;
+    display: flex;
+    gap: 2em;
+    margin-right: 4em;
+}
+.Topbar_element button{
+    background-color: transparent;
+    border: none;
+    font-size: x-large;
+    cursor: pointer;
+}

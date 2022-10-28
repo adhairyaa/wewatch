@@ -1,0 +1,31 @@
+.PlayVideo_Container{
+    position:relative;
+    border-bottom: 2px solid grey;
+    
+    
+}
+.PlayVideo_Video{
+    
+}
+
+.PlayVideo_Info{
+display: flex;
+flex-direction: column;
+
+font-size: x-large;
+font-weight: bolder;
+}
+.PlayVideo_Data{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+.PlayVideo_Buttons button {
+   border: none;
+   background-color: transparent;
+   font-size: xx-large;
+   margin: 1em;
+   margin-top: 0.2em;
+   cursor: pointer;
+}
