@@ -12,12 +12,12 @@ export default function Router (){
     return(
         <div>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/explore" element={<Home />} />
                 <Route path ="/history" element={<History />} />
                 <Route path="/liked" element={<Liked />}/>
                 <Route path="/Playlist" element={<Playlist />}/>
                 <Route path="/Watchlist" element={<Watchlist />}/>
-                <Route path="/Video/:Video" element={<VideoPlayer />}/>
+                <Route path="/Video/:video" element={<VideoPlayer />}/>
             </Routes>
         </div>
     )

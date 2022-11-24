@@ -3,6 +3,7 @@ import styles from './Pages.module.css'
 
 export default function History() {
 const {state} = useDataProvider()
+const {historyData} = JSON.parse(window.localStorage.getItem('History'))
     return(
         <div>
         <h1>History</h1>

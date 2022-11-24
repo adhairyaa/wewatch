@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import Filter from "../Components/Filter";
 import { useDataProvider } from "../Context/Reducer";
 import styles from "./Pages.module.css";
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
 console.log(Data)
   return (
     <div className="Home">
-      <div className="Home_Hero">
+       <Filter />
         <div className={styles.Video_Listing}>
           {Data.map((Video) => (
             <div
@@ -17,7 +18,7 @@ console.log(Data)
               }
             >
               <Link to={`/Video/${Video.Id}`}>
-                <div className={styles.Video_Card}>
+                <div className={styles.Video_Card}> 
                   <img
                     className={styles.Video_Img}
                     src={Video.Thumbnail}
@@ -40,7 +41,7 @@ console.log(Data)
             </div>
           ))}
         </div>
-      </div>
+      
     </div>
   );
 }

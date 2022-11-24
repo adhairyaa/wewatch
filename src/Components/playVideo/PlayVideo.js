@@ -1,9 +1,17 @@
-import { useDataProvider } from "../Context/Reducer";
+import { useDataProvider } from "../../Context/Reducer";
 import styles from "./PlayVideo.module.css";
 import ReactPlayer from "react-player";
+import { useState } from "react";
 
 export default function PlayVideo({ Video }) {
-  const { dispatch } = useDataProvider();
+  const { state,dispatch} = useDataProvider();
+  const [isLiked,setIsLiked] = useState(false)
+
+const likedHandler = ()=>{
+ dispatch({ type: "ADD_TO_LIKED", payload: Video })
+   state.Liked.includes(Video)?setIsLiked(true):setIsLiked(false)
+  
+}
 
   return (
     <div>
@@ -31,8 +39,8 @@ export default function PlayVideo({ Video }) {
             <i class="fa-solid fa-clock"></i>
           </button>
 
-          <button
-            onClick={() => dispatch({ type: "ADD_TO_LIKED", payload: Video })}
+          <button style={{ color: isLiked? "red":"black" }}
+            onClick={()=>likedHandler()}
           >
             <i class="fa-solid fa-thumbs-up"></i>
             

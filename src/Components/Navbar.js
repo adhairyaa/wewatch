@@ -1,11 +1,14 @@
 import React from "react";
 
 import {  NavLink } from "react-router-dom";
+import { useTheme } from "../Context/ThemeProvider";
 export default function Navbar() {
+  const {theme} = useTheme()
   return (
+    <div className={theme}>
     <div className="Navbar">
       <NavLink
-        to="/"
+        to="/explore"
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
         <div className="Navbar_icons">
@@ -54,6 +57,7 @@ export default function Navbar() {
         </div>
       </NavLink>
       playlist
+    </div>
     </div>
   );
 }

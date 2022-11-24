@@ -70,7 +70,38 @@ const DataBase = [
     Thumbnail: "Video4.jpg",
     Id: 4,
     VideoSource:"https://www.youtube.com/embed/SZcupt0Yqaw"
-  },
+  },{
+    VideoLink: (
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/AXnqkVTFUqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    ),
+    VideoTitle: "All Time Low",
+    VideoCategory: "Music",
+    VideoLikes: "2.5M",
+    VideoViews: "1.3M",
+    Thumbnail: "Video6.jpg",
+    Id: 6,
+    VideoSource:"https://youtu.be/AXnqkVTFUqY"},{
+      VideoLink: (
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/bhlvYmn1IUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      ),
+      VideoTitle: "Way of Ronin",
+      VideoCategory: "Gyan",
+      VideoLikes: "409K",
+      VideoViews: "903K",
+      Thumbnail: "Video7.jpg",
+      Id: 7,
+      VideoSource:"https://youtu.be/bhlvYmn1IUQ"},
+      {
+        VideoLink: (
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/KcMQO7ckh3s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        ),
+        VideoTitle: "Nothing Ear 1",
+        VideoCategory: "Product",
+        VideoLikes: "409K",
+        VideoViews: "1.3M",
+        Thumbnail: "Video8.jpg",
+        Id: 8,
+        VideoSource:"https://youtu.be/KcMQO7ckh3s"}
 ];
 
 export const DataProvider = ({ children }) => {
@@ -80,9 +111,9 @@ export const DataProvider = ({ children }) => {
       case "ADD_TO_WATCHLIST":
         return (state = { ...state, Watchlist: [...state.Watchlist, payload] });
       case "ADD_TO_HISTORY":
-        return (state = { ...state, History: [...state.History, payload] });
+        return (state = { ...state, History: [...state.History, payload] },window.localStorage.setItem("History", JSON.stringify({...state})));
       case "ADD_TO_LIKED":
-        return (state = { ...state, Liked: [...state.Liked, payload] });
+        return (state = { ...state, Liked: [...state.Liked, {payload,isLiked:true}] });
       case "ADD_TO_PLAYLIST":
         return (state = { ...state, Watchlist: [...state.Playlist, payload] });
       default:
@@ -97,7 +128,7 @@ export const DataProvider = ({ children }) => {
     SortBy: null,
     Category: null,
     Playlist: [],
-  });
+  }); 
   return (
     <DataContext.Provider value={{ state, dispatch }}>
       {children}
