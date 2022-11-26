@@ -14,7 +14,6 @@ const {historyData} = JSON.parse(window.localStorage.getItem('History'))
         <div>
         {state.History.map((Video)=><ul>{Video.VideoLink}</ul>)}
         </div>
-        
         </div>
     )
 }

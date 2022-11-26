@@ -110,10 +110,14 @@ export const DataProvider = ({ children }) => {
     switch (type) {
       case "ADD_TO_WATCHLIST":
         return (state = { ...state, Watchlist: [...state.Watchlist, payload] });
+      case "REMOVE_FROM_WATCHLIST":
+        return (state = {...state, Watchlist:[...state.Watchlist.filter((video=>video.Id!==payload))]})
       case "ADD_TO_HISTORY":
-        return (state = { ...state, History: [...state.History, payload] },window.localStorage.setItem("History", JSON.stringify({...state})));
+        return (state = { ...state, History: [...state.History, payload] } );
       case "ADD_TO_LIKED":
-        return (state = { ...state, Liked: [...state.Liked, {payload,isLiked:true}] });
+        return (state = { ...state, Liked: [...state.Liked, payload] });
+        case "REMOVE_FROM_LIKED":
+          return (state = {...state,Liked : [...state.Watchlist.filter((video)=>video.Id!== payload)]})
       case "ADD_TO_PLAYLIST":
         return (state = { ...state, Watchlist: [...state.Playlist, payload] });
       default:
