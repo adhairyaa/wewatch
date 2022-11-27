@@ -4,32 +4,36 @@ import ReactPlayer from "react-player";
 import { useState } from "react";
 
 export default function PlayVideo({ Video }) {
-  const { state, dispatch } = useDataProvider();
+  const {  dispatch } = useDataProvider();
   const [isLiked, setIsLiked] = useState(false);
   const [isWatchListed, setIsWatchListed] = useState(false);
 
   const likedHandler = () => {
-    // const locallySavedVideos = window.localStorage.getItem("likedVideos");
-    // const videosToSave = locallySavedVideos ? [ ...JSON.parse(locallySavedVideos), Video ] : [Video]
-    // window.localStorage.setItem ('likedVideos', JSON.stringify(videosToSave));
+    
     if (!isLiked) {
-      dispatch({ type: "ADD_TO_LIKED", payload: Video.Id });
+      dispatch({ type: "ADD_TO_LIKED", payload: Video});
       setIsLiked(true);
+      const locallySavedVideos = window.localStorage.getItem("likedVideos");
+    const videosToSave = locallySavedVideos ? [ ...JSON.parse(locallySavedVideos), Video.Id ] : [Video.Id]
+    window.localStorage.setItem ('likedVideos', JSON.stringify(videosToSave));
     } else {
-      dispatch({ type: "REMOVE_FROM_LIKED", payload: Video.Id });
+      dispatch({ type: "REMOVE_FROM_LIKED", payload: Video });
       setIsLiked(false);
+      const locallySavedVideos = window.localStorage.getItem("likedVideos")
+      const videosToSave = JSON.parse(locallySavedVideos).filter((item)=> item!==Video.Id)
+      window.localStorage.setItem("likedVideos",JSON.stringify(videosToSave))
     }
-
+  }
     const watchlistHandler = () => {
       if (!isWatchListed) {
-        dispatch({ type: "ADD_TO_WATCHLIST", payload: Video.Id });
-        state.Watchlist.includes(Video.Id) && setIsWatchListed(true);
+        dispatch({ type: "ADD_TO_WATCHLIST", payload: Video });
+         setIsWatchListed(true);
       } else {
-        dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: Video.Id });
+        dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: Video });
         setIsWatchListed(false);
       }
     };
-  };
+  
 
   return (
     <div>
@@ -49,7 +53,7 @@ export default function PlayVideo({ Video }) {
             <div>{Video.VideoViews} Views</div>
           </div>
           <div className={styles.PlayVideo_Buttons}>
-            <button onClick={() => watchlistHandler()}>
+            <button onClick={() => watchlistHandler()} style={{color:isWatchListed ? "red" : "black"}}>
               <i class="fa-solid fa-clock"></i>
             </button>
 

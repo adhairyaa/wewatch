@@ -1,0 +1,26 @@
+.Navbar{
+  
+    display: flex;
+    position: fixed;
+    gap: 15px;
+    flex-direction: column;
+    border-right:grey solid 2px ;
+    width: 8%;
+    padding-left: 1.5em;
+    height: 100vh;
+    
+    
+  }
+
+  .Navbar_icons{
+    font-size: 1.8rem;
+    background-color: rgb(230, 226, 226);
+    padding: 7px;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2.4rem;
+    padding-top: 1px;
+    padding-left: 8px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }

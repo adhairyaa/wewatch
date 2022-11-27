@@ -1,7 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
-const DataContext = createContext();
 
-const DataBase = [
+
+const DataContext = createContext();
+const videos = [
   {
     VideoLink: (
       <iframe
@@ -104,6 +105,7 @@ const DataBase = [
         VideoSource:"https://youtu.be/KcMQO7ckh3s"}
 ];
 
+
 export const DataProvider = ({ children }) => {
   const handleDispatch = (state,action) => {
     const { type, payload } = action;
@@ -111,13 +113,13 @@ export const DataProvider = ({ children }) => {
       case "ADD_TO_WATCHLIST":
         return (state = { ...state, Watchlist: [...state.Watchlist, payload] });
       case "REMOVE_FROM_WATCHLIST":
-        return (state = {...state, Watchlist:[...state.Watchlist.filter((video=>video.Id!==payload))]})
+        return (state = {...state, Watchlist:[...state.Watchlist.filter((video=>video.Id!==payload.Id))]})
       case "ADD_TO_HISTORY":
         return (state = { ...state, History: [...state.History, payload] } );
       case "ADD_TO_LIKED":
         return (state = { ...state, Liked: [...state.Liked, payload] });
         case "REMOVE_FROM_LIKED":
-          return (state = {...state,Liked : [...state.Watchlist.filter((video)=>video.Id!== payload)]})
+          return (state = {...state,Liked : [...state.Watchlist.filter((video)=>video.Id!== payload.Id)]})
       case "ADD_TO_PLAYLIST":
         return (state = { ...state, Watchlist: [...state.Playlist, payload] });
       default:
@@ -125,7 +127,7 @@ export const DataProvider = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(handleDispatch, {
-    Data: DataBase,
+    Data: videos,
     Watchlist: [],
     Liked: [],
     History: [],

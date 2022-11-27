@@ -3,13 +3,13 @@ import styles from "./Topbar.module.css";
 export default function Topbar() {
   const { toggleTheme, theme } = useTheme();
   return (
-    <div className={theme}>
-      <div className={styles.Topbar}>
+    <div className={theme==="light" ? styles.light : styles.dark}>
+      <div className={styles.Topbar} style={{backgroundColor: theme === "light"? "white" : "black"}}>
         <div className={styles.Topbar_logo}>
           <lord-icon
             src="https://cdn.lordicon.com/ensnyqet.json"
             trigger="morph"
-            style={{ width: "50px", height: "50px" }}
+            style={{ width: "50px", height: "50px"  }}
           ></lord-icon>
           <div style={{ fontSize: "1.5em" }}>
             We<span style={{ color: "red" }}>Watch</span>
@@ -20,7 +20,7 @@ export default function Topbar() {
         <div className={styles.Topbar_element}>
           <button onClick={() => toggleTheme()}>
             {" "}
-            <i class="fa-sharp fa-solid fa-sun"></i>
+            <div style={{color:theme === "light"? "black" : "white"}}><i class="fa-sharp fa-solid fa-sun"></i></div>
           </button>
           <i class="fa-solid fa-user"></i>
         </div>

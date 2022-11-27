@@ -23,7 +23,10 @@ font-weight: bolder;
 }
 .PlayVideo_Buttons button {
    border: none;
-   background-color: transparent;
+   background-color: rgb(242, 242, 242);
+   border-radius: 50%;
+   height: 3rem;
+   width: 3rem;
    font-size: xx-large;
    margin: 1em;
    margin-top: 0.2em;

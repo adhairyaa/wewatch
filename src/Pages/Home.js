@@ -2,14 +2,16 @@
 import { Link } from "react-router-dom";
 import Filter from "../Components/Filter";
 import { useDataProvider } from "../Context/Reducer";
+import {  useTheme } from "../Context/ThemeProvider";
 import styles from "./Pages.module.css";
 export default function Home() {
   const { state, dispatch } = useDataProvider();
   const { Data } = state;
-console.log(Data)
+const {theme} = useTheme()
   return (
-    <div className="Home">
-       <Filter />
+    <div className={theme}>
+    <div className={styles.Home}>
+       
         <div className={styles.Video_Listing}>
           {Data.map((Video) => (
             <div
@@ -42,6 +44,7 @@ console.log(Data)
           ))}
         </div>
       
+    </div>
     </div>
   );
 }

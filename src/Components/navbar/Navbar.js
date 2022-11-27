@@ -1,17 +1,17 @@
 import React from "react";
-
+import styles from "./Navbar.module.css"
 import {  NavLink } from "react-router-dom";
-import { useTheme } from "../Context/ThemeProvider";
+import { useTheme } from "../../Context/ThemeProvider";
 export default function Navbar() {
   const {theme} = useTheme()
   return (
     <div className={theme}>
-    <div className="Navbar">
+    <div className={styles.Navbar}>
       <NavLink
         to="/explore"
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
-        <div className="Navbar_icons">
+        <div className={styles.Navbar_icons}>
           {" "}
           <i class="fa-solid fa-compass"></i>{" "}
         </div>
@@ -21,7 +21,7 @@ export default function Navbar() {
         to="/watchlist"
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
-        <div className="Navbar_icons">
+        <div className={styles.Navbar_icons}>
           {" "}
           <i class="fa-solid fa-clock"></i>{" "}
         </div>
@@ -31,7 +31,7 @@ export default function Navbar() {
         to="/history"
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
-        <div className="Navbar_icons">
+        <div className={styles.Navbar_icons}>
           {" "}
           <i class="fa-solid fa-clock-rotate-left"></i>
         </div>
@@ -41,7 +41,7 @@ export default function Navbar() {
         to="/liked"
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
-        <div className="Navbar_icons">
+        <div className={styles.Navbar_icons}>
           {" "}
           <i class="fa-solid fa-thumbs-up"></i>
         </div>
@@ -51,7 +51,7 @@ export default function Navbar() {
         to="/playlist"
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
-        <div className="Navbar_icons">
+        <div className={styles.Navbar_icons}>
           {" "}
           <i class="fa-solid fa-list-check"></i>
         </div>
