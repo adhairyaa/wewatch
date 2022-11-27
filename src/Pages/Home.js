@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import Filter from "../Components/Filter";
+
 import { useDataProvider } from "../Context/Reducer";
 import {  useTheme } from "../Context/ThemeProvider";
 import styles from "./Pages.module.css";
