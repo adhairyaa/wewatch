@@ -6,18 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "./Context/ThemeProvider";
 import { DataProvider } from "./Context/Reducer";
 import { BrowserRouter as Router } from "react-router-dom";
-import { FilterProvider } from "./Context/FilterProvider";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <FilterProvider>
+      
       <DataProvider>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </DataProvider>
-      </FilterProvider>
+      
     </Router>
   </React.StrictMode>
 );

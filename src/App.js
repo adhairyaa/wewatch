@@ -15,7 +15,7 @@ function App() {
         <Topbar />
 
         <Navbar />
-        <div className="Content_Wrapper">
+        <div className="Content_Wrapper"  >
           <Router />
         </div>
       </div>
