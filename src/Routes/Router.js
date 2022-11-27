@@ -18,7 +18,7 @@ export default function Router (){
                 <Route path="/Playlist" element={<Playlist />}/>
                 <Route path="/Watchlist" element={<Watchlist />}/>
                 <Route path="/Video/:video" element={<VideoPlayer />}/>
-                <Route path="/explore" element={<Home />} />
+                <Route path="" element={<Home />} />
             </Routes>
         </div>
     )

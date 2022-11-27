@@ -8,7 +8,7 @@ export default function Navbar() {
     <div className={theme}>
     <div className={styles.Navbar}>
       <NavLink
-        to="/explore"
+        to=""
         style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
       >
         <div className={styles.Navbar_icons}>
