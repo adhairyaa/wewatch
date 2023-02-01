@@ -9,10 +9,9 @@ export default function VideoPlayer() {
   const { state } = useDataProvider();
   const { Data } = state;
   const currentVideo = Data.filter((item) => item.Id === videoId);
-console.log(videoId)
   return (
     <div className={styles.VideoPlayer}>
-      <PlayVideo Video={currentVideo[0]}/>
+      <PlayVideo Video={currentVideo[0]} />
     </div>
   );
 }

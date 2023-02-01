@@ -8,14 +8,11 @@ function App() {
   const { theme } = useTheme();
   return (
     <div className="App">
-      <div
-        className={theme}
-        style={{ backgroundColor: theme === "light" ? "white" : "black" }}
-      >
+      <div className={theme}>
         <Topbar />
-
         <Navbar />
-        <div className="Content_Wrapper"  >
+
+        <div className="Content_Wrapper">
           <Router />
         </div>
       </div>
