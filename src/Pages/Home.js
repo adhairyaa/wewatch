@@ -1,17 +1,17 @@
-
 import { Link } from "react-router-dom";
 
 import { useDataProvider } from "../Context/Reducer";
-import {  useTheme } from "../Context/ThemeProvider";
+import { useTheme } from "../Context/ThemeProvider";
 import styles from "./Pages.module.css";
 export default function Home() {
   const { state, dispatch } = useDataProvider();
   const { Data } = state;
-const {theme} = useTheme()
+  const { theme } = useTheme();
   return (
     <div className={theme}>
-    <div className={styles.Home}>
-       
+      <div className={styles.Home}>
+        <h1 className={styles.pageTitle}>Explore</h1>
+
         <div className={styles.Video_Listing}>
           {Data.map((Video) => (
             <div
@@ -20,7 +20,7 @@ const {theme} = useTheme()
               }
             >
               <Link to={`/Video/${Video.Id}`}>
-                <div className={styles.Video_Card}> 
+                <div className={styles.Video_Card}>
                   <img
                     className={styles.Video_Img}
                     src={Video.Thumbnail}
@@ -43,8 +43,7 @@ const {theme} = useTheme()
             </div>
           ))}
         </div>
-      
-    </div>
+      </div>
     </div>
   );
 }

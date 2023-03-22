@@ -3,22 +3,53 @@
   position: fixed;
   gap: 15px;
   flex-direction: column;
-  border-right: grey solid 2px;
+  border-right: lightgrey solid 3px;
   width: 75px;
   padding-left: 1.5em;
   height: 100vh;
-  margin-top: 130px;
+  margin-top: 80px;
+  padding-top: 50px;
 }
 
 .Navbar_icons {
   font-size: 1.8rem;
   background-color: rgb(230, 226, 226);
-  padding: 7px;
+  padding: 10px;
   border-radius: 50%;
   width: 2rem;
-  height: 2.4rem;
-  padding-top: 1px;
-  padding-left: 8px;
-  margin-bottom: 0px;
-  margin-top: 0px;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 400px) {
+  .Navbar {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    border-top: lightgrey solid 3px;
+    width: 100vw;
+    height: 30px;
+    bottom: 40px;
+    background-color: white;
+    z-index: 10;
+    margin-top: 0;
+  }
+  .Navbar_icons {
+    font-size: 1.8rem;
+    background-color: rgb(230, 226, 226);
+    padding: 10px;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
 }

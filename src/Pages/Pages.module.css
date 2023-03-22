@@ -14,12 +14,16 @@
   font-size: 5em;
   color: grey;
 }
-
+.pageTitle {
+  margin-top: 110px;
+  margin-left: 30px;
+  font-size: 2rem;
+}
 .Video_Listing {
   display: flex;
   gap: 2em;
   flex-wrap: wrap;
-  margin-top: 150px;
+  margin-top: 50px;
   margin-left: 35px;
 }
 .Video_Card {
