@@ -27,18 +27,20 @@ a:link {
   text-decoration: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 470px) {
   .Navbar {
     display: flex;
     position: fixed;
     flex-direction: row;
     border-top: lightgrey solid 3px;
-    width: 100vw;
-    height: 30px;
-    bottom: 40px;
+    width: 100%;
+    height: 70px;
+    bottom: -10px;
     background-color: white;
     z-index: 10;
     margin-top: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
   }
   .Navbar_icons {
     font-size: 1.8rem;
@@ -50,6 +52,10 @@ a:link {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
+    flex-direction: row;
+    margin: 7px;
+  }
+  .iconName {
+    display: none;
   }
 }
