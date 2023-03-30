@@ -4,36 +4,38 @@ import ReactPlayer from "react-player";
 import { useState } from "react";
 
 export default function PlayVideo({ Video }) {
-  const {  dispatch } = useDataProvider();
+  const { dispatch } = useDataProvider();
   const [isLiked, setIsLiked] = useState(false);
   const [isWatchListed, setIsWatchListed] = useState(false);
 
   const likedHandler = () => {
-    
     if (!isLiked) {
-      dispatch({ type: "ADD_TO_LIKED", payload: Video});
+      dispatch({ type: "ADD_TO_LIKED", payload: Video });
       setIsLiked(true);
       const locallySavedVideos = window.localStorage.getItem("likedVideos");
-    const videosToSave = locallySavedVideos ? [ ...JSON.parse(locallySavedVideos), Video.Id ] : [Video.Id]
-    window.localStorage.setItem ('likedVideos', JSON.stringify(videosToSave));
+      const videosToSave = locallySavedVideos
+        ? [...JSON.parse(locallySavedVideos), Video.Id]
+        : [Video.Id];
+      window.localStorage.setItem("likedVideos", JSON.stringify(videosToSave));
     } else {
       dispatch({ type: "REMOVE_FROM_LIKED", payload: Video });
       setIsLiked(false);
-      const locallySavedVideos = window.localStorage.getItem("likedVideos")
-      const videosToSave = JSON.parse(locallySavedVideos).filter((item)=> item!==Video.Id)
-      window.localStorage.setItem("likedVideos",JSON.stringify(videosToSave))
+      const locallySavedVideos = window.localStorage.getItem("likedVideos");
+      const videosToSave = JSON.parse(locallySavedVideos).filter(
+        (item) => item !== Video.Id
+      );
+      window.localStorage.setItem("likedVideos", JSON.stringify(videosToSave));
     }
-  }
-    const watchlistHandler = () => {
-      if (!isWatchListed) {
-        dispatch({ type: "ADD_TO_WATCHLIST", payload: Video });
-         setIsWatchListed(true);
-      } else {
-        dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: Video });
-        setIsWatchListed(false);
-      }
-    };
-  
+  };
+  const watchlistHandler = () => {
+    if (!isWatchListed) {
+      dispatch({ type: "ADD_TO_WATCHLIST", payload: Video });
+      setIsWatchListed(true);
+    } else {
+      dispatch({ type: "REMOVE_FROM_WATCHLIST", payload: Video });
+      setIsWatchListed(false);
+    }
+  };
 
   return (
     <div>
@@ -41,8 +43,11 @@ export default function PlayVideo({ Video }) {
         <div className={styles.PlayVideo_Video}>
           <ReactPlayer
             url={Video.VideoSource}
-            width={"90%"}
-            height={"80vh"}
+            position={"relative"}
+            overflow={"hidden"}
+            width={"100%"}
+            height={"70vh"}
+            padding-top={"56.25%"}
             controls={"true"}
           />
         </div>
@@ -53,7 +58,10 @@ export default function PlayVideo({ Video }) {
             <div>{Video.VideoViews} Views</div>
           </div>
           <div className={styles.PlayVideo_Buttons}>
-            <button onClick={() => watchlistHandler()} style={{color:isWatchListed ? "red" : "black"}}>
+            <button
+              onClick={() => watchlistHandler()}
+              style={{ color: isWatchListed ? "red" : "black" }}
+            >
               <i class="fa-solid fa-clock"></i>
             </button>
 
@@ -73,6 +81,7 @@ export default function PlayVideo({ Video }) {
           </div>
         </div>
       </div>
+
       <h1>related</h1>
     </div>
   );
