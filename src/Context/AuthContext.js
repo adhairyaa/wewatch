@@ -29,30 +29,30 @@ export const AuthProvider = ({ children }) => {
   };
 
   async function signupUserWithCredentials(name, username, email, password) {
-    try {
-      const user = {
-        name: name,
-        username: username,
-        email: email,
-        password: password,
-      };
-      const response = await signup(user);
-      response.data.success ? setUserAndNavigate(response) : setAuthError(true);
-    } catch (error) {
-      console.error("Error occured during signup", error);
-      setAuthError(true);
-    }
+    // try {
+    //   const user = {
+    //     name: name,
+    //     username: username,
+    //     email: email,
+    //     password: password,
+    //   };
+    //   const response = await signup(user);
+    //   response.data.success ? setUserAndNavigate(response) : setAuthError(true);
+    // } catch (error) {
+    //   console.error("Error occured during signup", error);
+    //   setAuthError(true);
+    // }
   }
 
   const loginUserWithCredentials = async (username, password) => {
-    try {
-      const user = { username: username, password: password };
-      const response = await login(user);
-      response.data.success ? setUserAndNavigate(response) : setAuthError(true);
-    } catch (error) {
-      console.error("Error occured during login", error);
-      setAuthError(true);
-    }
+    // try {
+    //   const user = { username: username, password: password };
+    //   const response = await login(user);
+    //   response.data.success ? setUserAndNavigate(response) : setAuthError(true);
+    // } catch (error) {
+    //   console.error("Error occured during login", error);
+    //   setAuthError(true);
+    // }
   };
   return (
     <AuthContext.Provider
