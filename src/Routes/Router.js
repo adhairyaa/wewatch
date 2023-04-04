@@ -7,6 +7,7 @@ import Watchlist from "../Pages/Watchlist";
 import History from "../Pages/History";
 import Login from "../Pages/login/Login";
 import VideoPlayer from "../Pages/VideoPlayer";
+import SignUp from "../Pages/signup/SignUp";
 
 export default function Router() {
   return (
@@ -19,6 +20,7 @@ export default function Router() {
         <Route path="/Playlist" element={<Playlist />} />
         <Route path="/Watchlist" element={<Watchlist />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/Video/:video" element={<VideoPlayer />} />
       </Routes>
     </div>
