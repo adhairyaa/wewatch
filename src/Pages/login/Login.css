@@ -7,4 +7,30 @@
   flex-direction: column;
   border: 3px solid red;
   padding: 30px;
+  border-radius: 8px;
+}
+.login-Form input {
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px grey solid;
+  background-color: rgb(238, 235, 235);
+  padding: 10px;
+}
+.login-button {
+  background-color: red;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+}
+.login-guest {
+  color: tomato;
+  align-self: center;
+}
+.signup-Button {
+  background-color: transparent;
+  border: red 1px solid;
+  padding: 8px;
+  border-radius: 5px;
 }
