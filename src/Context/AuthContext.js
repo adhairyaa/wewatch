@@ -60,7 +60,9 @@ export const AuthProvider = ({ children }) => {
         { user }
       );
       console.log("login chala", response);
-      response.data.success ? setUserAndNavigate(response) : setAuthError(true);
+      response.data.status === "success"
+        ? setUserAndNavigate(response)
+        : setAuthError(true);
     } catch (error) {
       console.error("Error occured during login", error);
       setAuthError(true);

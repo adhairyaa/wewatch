@@ -6,7 +6,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { loginUserWithCredentials } = useAuth();
+  const { loginUserWithCredentials, currentUser, logoutUser } = useAuth();
 
   const guestLogin = () => {
     setPassword("guesthere");
@@ -14,36 +14,44 @@ export default function Login() {
   };
   return (
     <div>
-      <div className="login-Form">
-        <h2>Welcome to WeWatch</h2>
-        <input
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
-        <input
-          placeholder="password"
-          value={password}
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <div className="login-guest" onClick={() => guestLogin()}>
-          Login as guest
+      {currentUser ? (
+        <div className="logoutUser">
+          <p> Hi {currentUser.username} 👋 </p>
+          <p> comeback soon ! </p>
+          <button onClick={logoutUser}>Logout</button>
         </div>
-        <button
-          className="login-button"
-          onClick={() => loginUserWithCredentials(username, password)}
-        >
-          Login
-        </button>
+      ) : (
+        <div className="login-Form">
+          <h2>Welcome to WeWatch</h2>
+          <input
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          ></input>
+          <input
+            placeholder="password"
+            value={password}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+          <div className="login-guest" onClick={() => guestLogin()}>
+            Login as guest
+          </div>
+          <button
+            className="login-button"
+            onClick={() => loginUserWithCredentials(username, password)}
+          >
+            Login
+          </button>
 
-        <div>
-          Not a member{" "}
-          <Link to="/signup">
-            <button className="signup-Button">SignUp</button>
-          </Link>
+          <div>
+            Not a member{" "}
+            <Link to="/signup">
+              <button className="signup-Button">SignUp</button>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

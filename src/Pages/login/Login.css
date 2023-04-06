@@ -34,3 +34,20 @@
   padding: 8px;
   border-radius: 5px;
 }
+.logoutUser {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
+.logoutUser p {
+  margin: 0;
+}
+.logoutUser button {
+  background-color: red;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  color: white;
+}
