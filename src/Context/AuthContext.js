@@ -9,14 +9,14 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage?.getItem("wewatchLogin"))
   );
 
-  const [authError, setAuthError] = useState(false);
+  const [authError, setAuthError] = useState("");
 
   const { state } = useLocation();
   const navigate = useNavigate();
 
   function logoutUser() {
     try {
-      localStorage.removeItem("nftubeLogin");
+      localStorage.removeItem("wewatchLogin");
       setCurrentUser();
     } catch (err) {
       console.error("Error while logging out", err);
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
         : setAuthError(true);
     } catch (error) {
       console.error("Error occured during signup", error);
-      setAuthError(true);
+      setAuthError("could not sign at the moment");
     }
   }
 
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
         : setAuthError(true);
     } catch (error) {
       console.error("Error occured during login", error);
-      setAuthError(true);
+      setAuthError("account does not exist");
     }
   };
   return (
@@ -75,6 +75,7 @@ export const AuthProvider = ({ children }) => {
         logoutUser,
         signupUserWithCredentials,
         currentUser,
+        authError,
       }}
     >
       {children}

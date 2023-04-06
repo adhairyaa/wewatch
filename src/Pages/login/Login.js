@@ -6,7 +6,8 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { loginUserWithCredentials, currentUser, logoutUser } = useAuth();
+  const { loginUserWithCredentials, currentUser, logoutUser, authError } =
+    useAuth();
 
   const guestLogin = () => {
     setPassword("guesthere");
@@ -43,6 +44,7 @@ export default function Login() {
           >
             Login
           </button>
+          <p>{authError}</p>
 
           <div>
             Not a member{" "}

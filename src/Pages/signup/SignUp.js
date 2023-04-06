@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../signup/SignUp.css";
 import { useAuth } from "../../Context/AuthContext";
 function SignUp() {
-  const { signupUserWithCredentials } = useAuth();
+  const { signupUserWithCredentials, authError } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -37,6 +37,7 @@ function SignUp() {
         >
           SignUp
         </button>
+        <p>{authError}</p>
 
         <div>
           Already a member{" "}
