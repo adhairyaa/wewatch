@@ -12,14 +12,28 @@ function SignUp() {
     <div>
       <div className="login-Form">
         <h2>Welcome to WeWatch</h2>
-        <input placeholder="username"></input>
-        <input placeholder="name"></input>
-        <input placeholder="email"></input>
-        <input placeholder="password"></input>
+        <input
+          placeholder="username"
+          onChange={(e) => setUsername(e.target.value)}
+        ></input>
+        <input
+          placeholder="name"
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+        <input
+          placeholder="email"
+          onChange={(e) => setEmail(e.target.value)}
+        ></input>
+        <input
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
 
         <button
           className="login-button"
-          onClick={() => signupUserWithCredentials(username, password)}
+          onClick={() =>
+            signupUserWithCredentials(name, username, email, password)
+          }
         >
           SignUp
         </button>

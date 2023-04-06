@@ -6,8 +6,9 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage?.getItem("nftubeLogin"))
+    JSON.parse(localStorage?.getItem("wewatchLogin"))
   );
+
   const [authError, setAuthError] = useState(false);
 
   const { state } = useLocation();
@@ -24,7 +25,8 @@ export const AuthProvider = ({ children }) => {
   }
   const setUserAndNavigate = (response) => {
     const user = response.data.data;
-    localStorage?.setItem("nftubeLogin", JSON.stringify(user));
+    console.log("setuser chala", user);
+    localStorage?.setItem("wewatchLogin", JSON.stringify(user));
     setCurrentUser(user);
     state?.from ? navigate(state.from) : navigate("/");
   };
@@ -41,7 +43,9 @@ export const AuthProvider = ({ children }) => {
         `https://authentication-backend.dhairyagulati.repl.co/signup`,
         { user }
       );
-      response.data.success ? setUserAndNavigate(response) : setAuthError(true);
+      response.data.status === "success"
+        ? setUserAndNavigate(response)
+        : setAuthError(true);
     } catch (error) {
       console.error("Error occured during signup", error);
       setAuthError(true);
@@ -52,9 +56,10 @@ export const AuthProvider = ({ children }) => {
     try {
       const user = { username: username, password: password };
       const response = await axios.post(
-        "https://authentication-backend.dhairyagulati.repl.co",
+        "https://authentication-backend.dhairyagulati.repl.co/login",
         { user }
       );
+      console.log("login chala", response);
       response.data.success ? setUserAndNavigate(response) : setAuthError(true);
     } catch (error) {
       console.error("Error occured during login", error);
