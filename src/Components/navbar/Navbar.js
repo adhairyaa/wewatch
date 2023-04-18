@@ -47,15 +47,12 @@ export default function Navbar() {
           </div>
         </NavLink>
         <div className={styles.iconName}>liked</div>
-        <NavLink
-          to="/playlist"
-          style={({ isActive }) => ({ color: isActive ? "red" : "black" })}
-        >
-          <div className={styles.Navbar_icons}>
-            {" "}
-            <i class="fa-solid fa-list-check"></i>
-          </div>
-        </NavLink>
+
+        <div className={styles.Navbar_icons}>
+          {" "}
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+
         <div className={styles.iconName}>playlist</div>
       </div>
     </div>

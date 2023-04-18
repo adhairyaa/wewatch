@@ -29,7 +29,7 @@ export default function Topbar() {
             </div>
           </button>
           <Link to="/login">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user" style={{ color: "red" }}></i>
           </Link>
         </div>
       </div>

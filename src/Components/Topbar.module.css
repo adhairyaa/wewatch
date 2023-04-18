@@ -47,8 +47,9 @@
   font-size: x-large;
   display: flex;
   gap: 2em;
-
+  text-decoration: none;
   padding-right: 20px;
+  color: black;
 }
 .Topbar_element button {
   background-color: transparent;

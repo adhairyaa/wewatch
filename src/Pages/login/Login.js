@@ -6,12 +6,17 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { loginUserWithCredentials, currentUser, logoutUser, authError } =
-    useAuth();
+  const {
+    loginUserWithCredentials,
+    currentUser,
+    logoutUser,
+    authError,
+    authLoading,
+  } = useAuth();
 
   const guestLogin = () => {
-    setPassword("guesthere");
-    setUsername("guest");
+    setPassword("gulati");
+    setUsername("dhairya");
   };
   return (
     <div>
@@ -23,7 +28,7 @@ export default function Login() {
         </div>
       ) : (
         <div className="login-Form">
-          <h2>Welcome to WeWatch</h2>
+          <h2>Welcome to WeWatch </h2>
           <input
             placeholder="username"
             value={username}
@@ -44,8 +49,9 @@ export default function Login() {
           >
             Login
           </button>
-          <p>{authError}</p>
-
+          <p>
+            {authError} {authLoading && <p>laoding...</p>}{" "}
+          </p>
           <div>
             Not a member{" "}
             <Link to="/signup">

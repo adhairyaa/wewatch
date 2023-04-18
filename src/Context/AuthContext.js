@@ -10,9 +10,16 @@ export const AuthProvider = ({ children }) => {
   );
 
   const [authError, setAuthError] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
 
   const { state } = useLocation();
   const navigate = useNavigate();
+
+  currentUser?.token
+    ? (axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${currentUser?.token}`)
+    : delete axios.defaults.headers.common["Authorization"];
 
   function logoutUser() {
     try {
@@ -54,15 +61,16 @@ export const AuthProvider = ({ children }) => {
 
   const loginUserWithCredentials = async (username, password) => {
     try {
+      setAuthLoading(true);
       const user = { username: username, password: password };
       const response = await axios.post(
         "https://authentication-backend.dhairyagulati.repl.co/login",
         { user }
       );
-      console.log("login chala", response);
       response.data.status === "success"
         ? setUserAndNavigate(response)
         : setAuthError(true);
+      setAuthLoading(false);
     } catch (error) {
       console.error("Error occured during login", error);
       setAuthError("account does not exist");
@@ -76,6 +84,7 @@ export const AuthProvider = ({ children }) => {
         signupUserWithCredentials,
         currentUser,
         authError,
+        authLoading,
       }}
     >
       {children}
